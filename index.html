@@ -174,7 +174,7 @@ footer{text-align:center;padding:24px;color:var(--dim);font-size:.75rem;border-t
     <button class="btn btn-outline" onclick="toggleMemberForm()" style="margin-bottom:16px" id="member-form-btn">➕ Add Yourself</button>
     <div class="form-card" id="member-form" style="display:none">
       <h3>Add Yourself to the Wall</h3>
-      <div class="field"><label>Display name</label><input id="mem-name" placeholder="What should we call you?"></div>
+      <div class="field"><label>Display name</label><input id="mem-name" placeholder="What should we call you?"><span style="color:var(--dim);font-size:.72rem">Keep it school-appropriate — we want admin to love this as much as we do.</span></div>
       <div class="field"><label>What are you into? (optional)</label><input id="mem-role" placeholder="Coding, design, prompting, vibes..."></div>
       <div class="field"><label>Current project (optional)</label><input id="mem-project" placeholder="What are you working on?"></div>
       <div class="field"><label>GitHub handle (optional)</label><input id="mem-gh" placeholder="@username"></div>
@@ -356,7 +356,25 @@ function renderMembers(){
 
 function esc(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML}
 
+// === SEED DATA ===
+function seedBuilds(){
+  var builds=load('builds',[]);
+  if(builds.length)return;
+  var seeds=[
+    {name:'"Your Own Agent" Workshop Series',desc:'Week 1: everyone builds a personal AI assistant. Week 2: teach it a skill. Week 3: connect them together. By the end, every kid has their own Athena.',status:'idea'},
+    {name:'Reseda High AI — School Assistant',desc:'A student-built app that answers "when is the pep rally," "what\'s for lunch," "how do I appeal a grade." Feeds on the student handbook + school calendar. Built by the club, used by 2,000 kids.',status:'idea'},
+    {name:'The Contract Checker — Student Rights',desc:'Like the UTLA contract search app, but for the student handbook. Upload the handbook, ask "can my teacher do X?" Same engine, different domain. Kids learn the pattern AND learn their rights.',status:'idea'},
+    {name:'AI Art & Music Collective',desc:'Not everyone codes. Some want to prompt. Gallery of AI-generated covers for English projects, album art for the band kids, posters for the drama department. Low floor, high ceiling.',status:'idea'},
+    {name:'"Automate the Boring Stuff" — School Edition',desc:'The club hunts for tedious school processes and automates them. Permission slip tracker. Club attendance. Bathroom pass logger. Real utility, real audience.',status:'idea'}
+  ];
+  seeds.forEach(function(s,i){
+    builds.unshift({id:Date.now()-i*1000,name:s.name,desc:s.desc,status:s.status,link:'',created:new Date(Date.now()-i*3600000).toISOString()});
+  });
+  save('builds',builds);
+}
+
 // === INIT ===
+seedBuilds();
 renderBoard();
 renderBuilds();
 renderMembers();
