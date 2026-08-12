@@ -125,6 +125,7 @@ footer{text-align:center;padding:24px;color:var(--dim);font-size:.75rem;border-t
     <button class="tab" data-panel="norms">📜 Workshop Norms</button>
     <button class="tab" data-panel="charter">📋 Club Charter</button>
     <button class="tab" data-panel="screentime">📱 Screen Time</button>
+    <button class="tab" data-panel="toolkit">🛠️ Toolkit</button>
   </nav>
 
   <!-- Project Board -->
@@ -368,6 +369,126 @@ footer{text-align:center;padding:24px;color:var(--dim);font-size:.75rem;border-t
       <div style="background:rgba(249,115,22,.08);border:2px solid var(--accent);border-radius:var(--radius);padding:20px;margin-top:16px;text-align:center">
         <p style="color:var(--accent);font-size:.95rem;font-weight:700;margin:0 0 8px 0">The Reseda AI Workshop doesn't ask for an exception to the screen time policy.</p>
         <p style="color:var(--muted);font-size:.85rem;line-height:1.6;margin:0">We ask to be recognized as what the policy's own title describes: <strong style="color:var(--text)">technology used with intention.</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toolkit -->
+  <div class="panel" id="panel-toolkit">
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:16px">
+      <h2 style="color:var(--accent);font-size:1.2rem;margin-bottom:4px">🛠️ Workshop Toolkit</h2>
+      <p style="color:var(--dim);font-size:.8rem;margin-bottom:20px">Everything below works on a school Chromebook. No installs, no credit cards, no special hardware. If you can open a browser tab, you can build.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+
+        <!-- Column 1: Chromebook-Friendly -->
+        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:16px">
+          <h3 style="color:var(--accent);font-size:.9rem;margin:0 0 4px 0">💻 Chromebook-Ready</h3>
+          <p style="color:var(--dim);font-size:.72rem;margin:0 0 14px 0">Build, code, deploy — all in a browser tab</p>
+
+          <div style="margin-bottom:14px">
+            <h4 style="font-size:.8rem;color:var(--blue);margin:0 0 2px 0">📝 CodePen</h4>
+            <p style="font-size:.73rem;color:var(--muted);margin:0 0 2px 0">Build HTML/CSS/JS in real time. See your work instantly. No setup. Perfect first tool.</p>
+            <a href="https://codepen.io" target="_blank" style="font-size:.72rem;color:var(--accent)">codepen.io →</a>
+          </div>
+
+          <div style="margin-bottom:14px">
+            <h4 style="font-size:.8rem;color:var(--green);margin:0 0 2px 0">🚀 Replit</h4>
+            <p style="font-size:.73rem;color:var(--muted);margin:0 0 2px 0">Full coding environment. Build websites, bots, apps. Collaborate live with teammates.</p>
+            <a href="https://replit.com" target="_blank" style="font-size:.72rem;color:var(--accent)">replit.com →</a>
+          </div>
+
+          <div style="margin-bottom:14px">
+            <h4 style="font-size:.8rem;color:var(--purple);margin:0 0 2px 0">🐙 GitHub</h4>
+            <p style="font-size:.73rem;color:var(--muted);margin:0 0 2px 0">Store your code, deploy to the web (GitHub Pages), build a portfolio for free.</p>
+            <a href="https://github.com" target="_blank" style="font-size:.72rem;color:var(--accent)">github.com →</a>
+          </div>
+
+          <div style="margin-bottom:14px">
+            <h4 style="font-size:.8rem;color:var(--yellow);margin:0 0 2px 0">🤗 Hugging Face</h4>
+            <p style="font-size:.73rem;color:var(--muted);margin:0 0 2px 0">Explore AI models, run demos in your browser, build Spaces. The open-source AI hub.</p>
+            <a href="https://huggingface.co" target="_blank" style="font-size:.72rem;color:var(--accent)">huggingface.co →</a>
+          </div>
+
+          <div style="margin-bottom:8px">
+            <h4 style="font-size:.8rem;color:#ec4899;margin:0 0 2px 0">🎨 JSFiddle</h4>
+            <p style="font-size:.73rem;color:var(--muted);margin:0 0 2px 0">Quick HTML/CSS/JS experiments. Share a link, see results. Great for prototyping.</p>
+            <a href="https://jsfiddle.net" target="_blank" style="font-size:.72rem;color:var(--accent)">jsfiddle.net →</a>
+          </div>
+        </div>
+
+        <!-- Column 2: AI Platforms -->
+        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:16px">
+          <h3 style="color: var(--purple);font-size:.9rem;margin:0 0 4px 0;">🧠 AI Platforms</h3>
+          <p style="color:var(--dim);font-size:.72rem;margin:0 0 14px 0">The engines. Free tiers do everything we need.</p>
+
+          <div style="margin-bottom:14px">
+            <h4 style="font-size:.8rem;color:var(--blue);margin:0 0 2px 0">🔵 Google AI Studio</h4>
+            <p style="font-size:.73rem;color:var(--muted);margin:0 0 2px 0"><strong>Our primary tool.</strong> Full Gemini access, prompt building, API testing. Works with LAUSD Google accounts. No credit card needed.</p>
+            <a href="https://aistudio.google.com" target="_blank" style="font-size:.72rem;color:var(--accent)">aistudio.google.com →</a>
+          </div>
+
+          <div style="margin-bottom:14px">
+            <h4 style="font-size:.8rem;color:#22c55e;margin:0 0 2px 0">🧪 Claude (Anthropic)</h4>
+            <p style="font-size:.73rem;color:var(--muted);margin:0 0 2px 0">Excellent for writing, analysis, and creative work. Free tier gives generous usage.</p>
+            <a href="https://claude.ai" target="_blank" style="font-size:.72rem;color:var(--accent)">claude.ai →</a>
+          </div>
+
+          <div style="margin-bottom:14px">
+            <h4 style="font-size:.8rem;color:var(--green);margin:0 0 2px 0">💬 ChatGPT (OpenAI)</h4>
+            <p style="font-size:.73rem;color:var(--muted);margin:0 0 2px 0">The most well-known. Free tier includes GPT-4o. Great for brainstorming and code help.</p>
+            <a href="https://chatgpt.com" target="_blank" style="font-size:.72rem;color:var(--accent)">chatgpt.com →</a>
+          </div>
+
+          <div style="margin-bottom:14px">
+            <h4 style="font-size:.8rem;color:var(--yellow);margin:0 0 2px 0">🎵 Suno AI</h4>
+            <p style="font-size:.73rem;color:var(--muted);margin:0 0 2px 0">Generate music from text prompts. For the music/AI collective project.</p>
+            <a href="https://suno.com" target="_blank" style="font-size:.72rem;color:var(--accent)">suno.com →</a>
+          </div>
+
+          <div style="margin-bottom:8px">
+            <h4 style="font-size:.8rem;color:#ec4899;margin:0 0 2px 0">🖼️ Canva AI</h4>
+            <p style="font-size:.73rem;color:var(--muted);margin:0 0 2px 0">AI image generation, design tools. Already used in many LAUSD classrooms.</p>
+            <a href="https://canva.com" target="_blank" style="font-size:.72rem;color:var(--accent)">canva.com →</a>
+          </div>
+        </div>
+
+        <!-- Column 3: Command Center -->
+        <div style="background:linear-gradient(135deg,rgba(249,115,22,.1),rgba(139,92,246,.08));border:1px solid rgba(249,115,22,.3);border-radius:var(--radius);padding:16px">
+          <h3 style="color:var(--accent);font-size:.9rem;margin:0 0 4px 0">🦉 Command Center</h3>
+          <p style="color:var(--dim);font-size:.72rem;margin:0 0 14px 0">The pro setup — what Mr. Alfera uses to build & run the workshop.</p>
+
+          <div style="margin-bottom:14px">
+            <h4 style="font-size:.8rem;color:var(--accent);margin:0 0 2px 0">🦉 Athena</h4>
+            <p style="font-size:.73rem;color:var(--muted);margin:0 0 2px 0">Named AI assistant running on ClawBox — a dedicated AI computer. The workshop's strategic engine. Built the dashboard, the charter, the toolkit — all of it.</p>
+          </div>
+
+          <div style="margin-bottom:14px">
+            <h4 style="font-size:.8rem;color:var(--purple);margin:0 0 2px 0">📦 OpenClaw</h4>
+            <p style="font-size:.73rem;color:var(--muted);margin:0 0 2px 0">Open-source agentic AI framework. The engine under Athena's hood. Persistent agents, memory, tool use, scheduling.</p>
+            <a href="https://openclaw.ai" target="_blank" style="font-size:.72rem;color:var(--accent)">openclaw.ai →</a>
+          </div>
+
+          <div style="margin-bottom:14px">
+            <h4 style="font-size:.8rem;color:var(--green);margin:0 0 2px 0">🖥️ ClawBox</h4>
+            <p style="font-size:.73rem;color:var(--muted);margin:0 0 2px 0">Dedicated AI computer — NVIDIA Jetson, local GPU, runs 24/7. Serves webapps, hosts agents, powers the workshop infrastructure.</p>
+          </div>
+
+          <div style="margin-bottom:14px">
+            <h4 style="font-size:.8rem;color:var(--blue);margin:0 0 2px 0">🛡️ Ares</h4>
+            <p style="font-size:.73rem;color:var(--muted);margin:0 0 2px 0">Security agent. Daily sweeps, firewall audits, system health. Named sub-agent running alongside Athena on ClawBox.</p>
+          </div>
+
+          <div style="margin-bottom:8px">
+            <h4 style="font-size:.8rem;color:var(--yellow);margin:0 0 2px 0">🌐 This Website</h4>
+            <p style="font-size:.73rem;color:var(--muted);margin:0 0 2px 0">Built by Mr. Alfera + Athena, deployed via GitHub Pages. Everything the club creates can be deployed the same way.</p>
+            <a href="https://pages.github.com" target="_blank" style="font-size:.72rem;color:var(--accent)">pages.github.com →</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.3);border-radius:var(--rs);padding:14px;margin-top:16px">
+        <p style="color:var(--muted);font-size:.8rem;margin:0;line-height:1.6"><strong style="color:var(--accent)">🔑 The key insight:</strong> The left column + middle column is everything a student needs. <em>Zero</em> dollars, <em>zero</em> installs, <em>all</em> in a Chromebook browser. The right column is what makes the workshop run — a glimpse of where this path leads if they stick with it. Every kid who learns prompt engineering on Google AI Studio today is one step closer to building their own Athena tomorrow.</p>
       </div>
     </div>
   </div>
