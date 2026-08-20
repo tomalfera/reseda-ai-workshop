@@ -107,6 +107,29 @@ footer{text-align:center;padding:24px;color:var(--dim);font-size:.75rem;border-t
   .member-grid{grid-template-columns:1fr 1fr}
   .norms{grid-template-columns:1fr}
 }
+
+/* Permission Slip */
+.permission-slip{background:#fff;color:#111;border:1px solid #ddd;border-radius:var(--radius);padding:30px;max-width:720px;margin:0 auto;font-family:Georgia,'Times New Roman',serif;line-height:1.55;box-shadow:0 2px 12px rgba(0,0,0,.4)}
+.permission-slip .lang-label{text-align:center;font-size:.7rem;color:#888;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px}
+.permission-slip .school{text-align:center;font-weight:700;font-size:.85rem;letter-spacing:1.5px;color:#222;margin-bottom:4px}
+.permission-slip h2{color:#111;font-size:1.15rem;text-align:center;margin:0 0 2px;font-weight:700}
+.permission-slip .sub{text-align:center;font-size:.72rem;color:#555;margin:0 0 18px}
+.permission-slip h3{font-size:.9rem;color:#111;margin:16px 0 6px;border-bottom:1px solid #bbb;padding-bottom:3px;font-weight:700}
+.permission-slip p{font-size:.8rem;color:#222;margin:8px 0}
+.permission-slip ul{padding-left:20px;margin:6px 0}
+.permission-slip li{font-size:.8rem;color:#222;margin:3px 0}
+.permission-slip .sigline{margin-top:14px}
+.permission-slip .line{display:flex;align-items:flex-end;gap:6px;margin:10px 0;font-size:.8rem;color:#222}
+.permission-slip .line .bl{flex:1;border-bottom:1px solid #333;min-height:1em}
+@media print{
+  body{background:#fff}
+  header,.tabs,footer,.panel:not(#panel-permission){display:none!important}
+  #panel-permission{display:block!important}
+  .container{max-width:100%;padding:0;margin:0}
+  .permission-slip{border:none;border-radius:0;max-width:100%;padding:0;box-shadow:none}
+  .slip-es{break-before:page;page-break-before:always}
+  .no-print{display:none!important}
+}
 </style>
 </head>
 <body>
@@ -126,6 +149,7 @@ footer{text-align:center;padding:24px;color:var(--dim);font-size:.75rem;border-t
     <button class="tab" data-panel="charter">📋 Club Charter</button>
     <button class="tab" data-panel="screentime">📱 Screen Time</button>
     <button class="tab" data-panel="toolkit">🛠️ Toolkit</button>
+    <button class="tab" data-panel="permission">📝 Permission Slip</button>
   </nav>
 
   <!-- Project Board -->
@@ -489,6 +513,83 @@ footer{text-align:center;padding:24px;color:var(--dim);font-size:.75rem;border-t
 
       <div style="background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.3);border-radius:var(--rs);padding:14px;margin-top:16px">
         <p style="color:var(--muted);font-size:.8rem;margin:0;line-height:1.6"><strong style="color:var(--accent)">🔑 The key insight:</strong> The left column + middle column is everything a student needs. <em>Zero</em> dollars, <em>zero</em> installs, <em>all</em> in a Chromebook browser. The right column is what makes the workshop run — a glimpse of where this path leads if they stick with it. Every kid who learns prompt engineering on Google AI Studio today is one step closer to building their own Athena tomorrow.</p>
+      </div>
+    </div>
+  </div>
+  <!-- Permission Slip -->
+  <div class="panel" id="panel-permission">
+    <div class="no-print" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:16px;text-align:center">
+      <p style="color:var(--muted);font-size:.85rem;margin:0 0 10px 0">Print-ready bilingual permission slip — prints clean to 2 pages (English + Español).</p>
+      <button class="btn btn-primary" onclick="window.print()">🖨️ Print Permission Slip</button>
+    </div>
+
+    <!-- ENGLISH -->
+    <div class="permission-slip">
+      <div class="lang-label">English</div>
+      <div class="school">RESEDA CHARTER HIGH SCHOOL</div>
+      <h2>Reseda AI Workshop</h2>
+      <p class="sub">Parent / Guardian Permission Slip &amp; Acknowledgment</p>
+
+      <p>Dear Parent or Guardian,</p>
+      <p>Your student is invited to participate in the <strong>Reseda AI Workshop</strong>, a student-led, after-school club where students learn about artificial intelligence by building real things — personal AI assistants, apps, and creative projects. The club is <strong>build-first</strong>: no grades, no prerequisites, no lectures. Students work at their own pace, and a credentialed teacher is present at every meeting.</p>
+
+      <h3>Meeting Details</h3>
+      <ul>
+        <li><strong>When:</strong> Once per week, after school (60–90 minutes)</li>
+        <li><strong>Where:</strong> On campus — classroom with computer access (or bring your own device)</li>
+        <li><strong>Faculty sponsor:</strong> Mr. Tom Alfera</li>
+        <li><strong>Cost:</strong> Free — browser-based tools only, no subscriptions or special equipment</li>
+      </ul>
+
+      <h3>What Students Will Do</h3>
+      <p>Students use free, browser-based AI tools (such as Google AI Studio, ChatGPT, and Claude) on school devices to build projects. All activity is supervised, structured, and time-limited, consistent with LAUSD's "Using Technology with Intention" policy. No personal data is required, and students may participate anonymously — they are never required to create accounts or share personal information.</p>
+
+      <h3>Consent &amp; Acknowledgment</h3>
+      <p>I have read the above and give my permission for my student to participate in the Reseda AI Workshop. I understand that a credentialed teacher will be present at all meetings, that the club uses only free browser-based tools appropriate for educational use, and that my student may participate without creating personal accounts.</p>
+
+      <div class="sigline">
+        <div class="line"><span style="width:150px">Student name:</span><span class="bl"></span></div>
+        <div class="line"><span style="width:150px">Grade:</span><span class="bl"></span></div>
+        <div class="line"><span style="width:150px">Parent/Guardian name:</span><span class="bl"></span></div>
+        <div class="line"><span style="width:150px">Parent/Guardian signature:</span><span class="bl"></span></div>
+        <div class="line"><span style="width:150px">Date:</span><span class="bl"></span></div>
+        <div class="line"><span style="width:150px">Emergency contact:</span><span class="bl"></span></div>
+        <p style="margin-top:10px">☐ I do <strong>not</strong> give permission for my student to participate.</p>
+      </div>
+    </div>
+
+    <!-- SPANISH -->
+    <div class="permission-slip slip-es" style="margin-top:28px">
+      <div class="lang-label">Español</div>
+      <div class="school">RESEDA CHARTER HIGH SCHOOL</div>
+      <h2>Reseda AI Workshop</h2>
+      <p class="sub">Permiso de participación y reconocimiento — Padre, madre o tutor</p>
+
+      <p>Estimado padre, madre o tutor:</p>
+      <p>Su estudiante está invitado(a) a participar en el <strong>Reseda AI Workshop</strong>, un club extracurricular dirigido por estudiantes donde aprenderán sobre inteligencia artificial construyendo cosas reales: asistentes de IA personales, aplicaciones y proyectos creativos. El club se enfoca en <strong>construir</strong>: sin calificaciones, sin requisitos previos, sin conferencias. Los estudiantes trabajan a su propio ritmo y un maestro acreditado está presente en cada reunión.</p>
+
+      <h3>Detalles de las reuniones</h3>
+      <ul>
+        <li><strong>Cuándo:</strong> Una vez por semana, después de clases (60–90 minutos)</li>
+        <li><strong>Dónde:</strong> En la escuela — salón con acceso a computadoras (o traiga su propio dispositivo)</li>
+        <li><strong>Maestro patrocinador:</strong> Sr. Tom Alfera</li>
+        <li><strong>Costo:</strong> Gratis — solo herramientas en línea, sin suscripciones ni equipo especial</li>
+      </ul>
+
+      <h3>Qué harán los estudiantes</h3>
+      <p>Los estudiantes usarán herramientas de IA gratuitas y basadas en el navegador (como Google AI Studio, ChatGPT y Claude) en los dispositivos de la escuela para construir proyectos. Toda la actividad es supervisada, estructurada y con tiempo limitado, de acuerdo con la política de LAUSD "Usando la tecnología con intención". No se requieren datos personales y los estudiantes pueden participar de forma anónima: nunca se les exige crear cuentas ni compartir información personal.</p>
+
+      <h3>Consentimiento y reconocimiento</h3>
+      <p>He leído lo anterior y doy mi permiso para que mi estudiante participe en el Reseda AI Workshop. Entiendo que un maestro acreditado estará presente en todas las reuniones, que el club utiliza únicamente herramientas gratuitas basadas en el navegador apropiadas para uso educativo y que mi estudiante puede participar sin crear cuentas personales.</p>
+
+      <div class="sigline">
+        <div class="line"><span style="width:170px">Nombre del estudiante:</span><span class="bl"></span></div>
+        <div class="line"><span style="width:170px">Grado:</span><span class="bl"></span></div>
+        <div class="line"><span style="width:170px">Nombre del padre/madre/tutor:</span><span class="bl"></span></div>
+        <div class="line"><span style="width:170px">Firma del padre/madre/tutor:</span><span class="bl"></span></div>
+        <div class="line"><span style="width:170px">Fecha:</span><span class="bl"></span></div>
+        <div class="line"><span style="width:170px">Contacto de emergencia:</span><span class="bl"></span></div>
+        <p style="margin-top:10px">☐ <strong>No</strong> doy permiso para que mi estudiante participe.</p>
       </div>
     </div>
   </div>
