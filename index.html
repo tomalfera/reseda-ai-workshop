@@ -607,10 +607,10 @@ var HYDRATED=false;
 function load(k,d){return HYDRATED&&STORE[k]?STORE[k]:d}
 function save(k,v){
   STORE[k]=v;
-  fetch(RTDB+'/'+k+'.json',{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(v)}).catch(function(){});
+  fetch(RTDB+'/'+k+'.json',{method:'PUT',cache:'no-store',headers:{'Content-Type':'application/json'},body:JSON.stringify(v)}).catch(function(){});
 }
 function hydrate(){
-  fetch(RTDB+'/.json').then(function(r){return r.ok?r.json():null}).then(function(data){
+  fetch(RTDB+'/.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(data){
     if(data){STORE.projects=data.projects||[];STORE.builds=data.builds||[];STORE.members=data.members||[]}
     HYDRATED=true;
     seedBuilds();renderBoard();renderBuilds();renderMembers();
@@ -620,7 +620,7 @@ function hydrate(){
   });
 }
 setInterval(function(){
-  fetch(RTDB+'/.json').then(function(r){return r.ok?r.json():null}).then(function(data){
+  fetch(RTDB+'/.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(data){
     if(data){STORE.projects=data.projects||[];STORE.builds=data.builds||[];STORE.members=data.members||[]}
     renderBoard();renderBuilds();renderMembers();
   }).catch(function(){});
