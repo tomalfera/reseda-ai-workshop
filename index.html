@@ -611,7 +611,7 @@ function save(k,v){
 }
 function hydrate(){
   fetch(RTDB+'/.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(data){
-    if(data){STORE.projects=data.projects||[];STORE.builds=data.builds||[];STORE.members=data.members||[]}
+    if(data){STORE.projects=(data.projects||[]).map(function(p){p.looking=p.looking||[];p.joined=p.joined||[];return p});STORE.builds=data.builds||[];STORE.members=data.members||[]}
     HYDRATED=true;
     seedBuilds();renderBoard();renderBuilds();renderMembers();
   }).catch(function(){
@@ -621,7 +621,7 @@ function hydrate(){
 }
 setInterval(function(){
   fetch(RTDB+'/.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(data){
-    if(data){STORE.projects=data.projects||[];STORE.builds=data.builds||[];STORE.members=data.members||[]}
+    if(data){STORE.projects=(data.projects||[]).map(function(p){p.looking=p.looking||[];p.joined=p.joined||[];return p});STORE.builds=data.builds||[];STORE.members=data.members||[]}
     renderBoard();renderBuilds();renderMembers();
   }).catch(function(){});
 },20000);
@@ -669,6 +669,7 @@ function joinProject(id){
   if(!p)return;
   var name=prompt('Your name (or leave blank to stay anonymous):')||'Anonymous';
   if(name===null)return;
+  p.joined=p.joined||[];
   p.joined.push(name);
   save('projects',projects);
   renderBoard();
@@ -687,13 +688,13 @@ function renderBoard(){
     var ago=Math.floor((Date.now()-d.getTime())/3600000);
     var agoStr=ago<1?'Just now':ago<24?ago+'h ago':Math.floor(ago/24)+'d ago';
     h+='<div class="card"><h3>'+esc(p.title)+'</h3><div class="meta">Posted by '+esc(p.author)+' · '+agoStr+(p.link?' · <a href="'+esc(p.link)+'" target="_blank" style="color:var(--accent)">🔗 link</a>':'')+'</div><p class="desc">'+esc(p.desc)+'</p>';
-    if(p.looking.length){
+    if(p.looking && p.looking.length){
       h+='<div class="tags">';
       p.looking.forEach(function(l){h+='<span class="tag '+tagClasses[l]+'">'+tagLabels[l]+'</span>'});
       h+='</div>';
     }
     h+='<div class="join-row"><button class="btn btn-outline btn-sm" onclick="joinProject('+p.id+')">🤝 I\'m In</button>';
-    if(p.joined.length){
+    if(p.joined && p.joined.length){
       h+='<span class="join-count">'+p.joined.length+' '+(p.joined.length===1?'person':'people')+' interested</span>';
     }
     h+='</div></div>';
