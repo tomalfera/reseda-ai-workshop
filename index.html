@@ -600,9 +600,31 @@ footer{text-align:center;padding:24px;color:var(--dim);font-size:.75rem;border-t
 </footer>
 
 <script>
-// === STATE ===
-function load(k,d){try{var v=localStorage.getItem('ws:'+k);return v?JSON.parse(v):d}catch(e){return d}}
-function save(k,v){try{localStorage.setItem('ws:'+k,JSON.stringify(v))}catch(e){}}
+// === STATE === (shared chalkboard via Firebase Realtime Database)
+var RTDB='https://reseda-ai-workshop-default-rtdb.firebaseio.com';
+var STORE={projects:[],builds:[],members:[]};
+var HYDRATED=false;
+function load(k,d){return HYDRATED&&STORE[k]?STORE[k]:d}
+function save(k,v){
+  STORE[k]=v;
+  fetch(RTDB+'/'+k+'.json',{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(v)}).catch(function(){});
+}
+function hydrate(){
+  fetch(RTDB+'/.json').then(function(r){return r.ok?r.json():null}).then(function(data){
+    if(data){STORE.projects=data.projects||[];STORE.builds=data.builds||[];STORE.members=data.members||[]}
+    HYDRATED=true;
+    seedBuilds();renderBoard();renderBuilds();renderMembers();
+  }).catch(function(){
+    HYDRATED=true;
+    seedBuilds();renderBoard();renderBuilds();renderMembers();
+  });
+}
+setInterval(function(){
+  fetch(RTDB+'/.json').then(function(r){return r.ok?r.json():null}).then(function(data){
+    if(data){STORE.projects=data.projects||[];STORE.builds=data.builds||[];STORE.members=data.members||[]}
+    renderBoard();renderBuilds();renderMembers();
+  }).catch(function(){});
+},20000);
 
 // === TABS ===
 document.querySelectorAll('.tab').forEach(function(t){
@@ -773,10 +795,7 @@ function seedBuilds(){
 }
 
 // === INIT ===
-seedBuilds();
-renderBoard();
-renderBuilds();
-renderMembers();
+hydrate();
 </script>
 </body>
 </html>
